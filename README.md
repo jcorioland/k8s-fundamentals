@@ -5,12 +5,14 @@ Support for Kubernetes Fundamentals presentation
 ## Containers vs Virtual Machines
 
 ![Containers vs Virtual Machines](assets/containers-vs-vms.png)
+Source: [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-defined)
 
 ## Docker Basics
 
 ### Basic taxonomy
 
 ![Basic taxonomy of Docker](assets/docker-taxonomy.png)
+Source: [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-containers-images-registries)
 
 ### Client/Server architecture
 
@@ -168,10 +170,12 @@ You can see Kubernetes as a distributed OS / Kernel. It will expose a pool (or m
 #### Master & Nodes
 
 ![Cluster Architecture](assets/cluster-master-and-nodes.png)
+Source: [Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads)
 
 #### Node
 
 ![Kubernetes Node](assets/aks-node-resource-interactions.png)
+Source: [Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads)
 
 Find more in [the documentation](https://docs.microsoft.com/fr-fr/azure/aks/concepts-clusters-workloads).
 
@@ -323,7 +327,7 @@ Notes:
 Using `kubectl`:
 
 ```bash
-kubectl expose deployment nginx --port=80 --target-port=8000
+kubectl expose deployment nginx --port=80 --target-port=80
 ```
 
 Using a YAML service definition:
