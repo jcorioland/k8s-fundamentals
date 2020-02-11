@@ -181,7 +181,7 @@ You can see Kubernetes as a distributed OS / Kernel. It will expose a pool (or m
 
 *Source: [Microsoft Docs](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads)*
 
-Find more in [the documentation](https://docs.microsoft.com/fr-fr/azure/aks/concepts-clusters-workloads).
+Find more in [the documentation](https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads).
 
 ### Basic Kubernetes Objects
 
@@ -220,16 +220,18 @@ Using Azure CLI to create a simple 2 nodes Kubernetes 1.15.3 cluster:
 az group create -n aksjcofr-rg -l francecentral
 
 az aks create -n aksjcofr -g aksjcofr-rg \
-    --kubernetes-version 1.15.3 \
+    --kubernetes-version 1.15.7 \
     --node-count 2 \
     --generate-ssh-keys \
     --service-principal $SPN_CLIENT_ID \
     --client-secret $SPN_CLIENT_SECRET
 ```
 
-After few minutes, your cluster is available to you.
+After a few minutes, your cluster is available to you.
 
-### Get starte with Kubernetes on Azure
+Find more information on service principal in the [documentation](https://docs.microsoft.com/en-us/azure/aks/kubernetes-service-principal). 
+
+### Get started with Kubernetes on Azure
 
 Download the cluster credentials:
 
@@ -309,7 +311,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 3 # tells deployment to run 1 pods matching the template
+  replicas: 3 # tells deployment to run 3 pods matching the template
   template: # create pods using pod definition in this template
     metadata:
       labels:
@@ -322,9 +324,15 @@ spec:
         - containerPort: 80
 ```
 
+```bash
+kubectl apply -f nginx-deployment.yaml
+kubectl get pods
+```
+
 Notes:
 
-- show that when you kill a pod that is part of a deployment, the deployment controller will create a new one to ensure that the number of replicas is always satisfied.
+- show that when you kill a pod that is part of a deployment (`kubectl delete pod <pod_name>`), the deployment controller will create a new one to ensure that the number of replicas is always satisfied.
+
 
 ### Exposing a service
 
